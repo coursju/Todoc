@@ -4,6 +4,11 @@ android {
     compileSdkVersion 29
     buildToolsVersion "30.0.1"
 
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
     defaultConfig {
         applicationId "com.example.todoctest1"
         minSdkVersion 16
