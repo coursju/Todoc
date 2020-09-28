@@ -28,21 +28,20 @@ public class TaskViewModel extends ViewModel {
         this.executor = executor;
     }
 
-    public void init(long userId) {
-        if (this.currentProject != null) {
-            return;
+    public void init() {
+        if (this.currentProject == null) {
+            currentProject = projectDataSource.getProjects();
         }
-        currentProject = projectDataSource.getProjects();
     }
 
     // -------------
-    // FOR USER
+    // FOR PROJECTS
     // -------------
 
     public LiveData<List<Project>> getProjects() { return this.currentProject;  }
 
     // -------------
-    // FOR ITEM
+    // FOR TASKS
     // -------------
 
     public LiveData<List<Task>> getTasks() {
@@ -50,8 +49,15 @@ public class TaskViewModel extends ViewModel {
     }
 
     public void createTask(Task task) {
-        executor.execute(() -> {
-            taskDataSource.createTask(task);
+//        executor.execute(() -> {
+//            taskDataSource.createTask(task);
+//        });
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                taskDataSource.createTask(task);
+
+            }
         });
     }
 
