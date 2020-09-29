@@ -1,4 +1,4 @@
-package com.cleanup.todoc;
+package com.cleanup.todoc.ui;
 
 import android.view.View;
 
@@ -9,6 +9,8 @@ import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.espresso.util.HumanReadables;
+
+import com.cleanup.todoc.ui.RecyclerViewMatcher;
 
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;

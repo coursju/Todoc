@@ -1,4 +1,4 @@
-package com.cleanup.todoc;
+package com.cleanup.todoc.ui;
 
 import android.view.View;
 import android.widget.TextView;
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
-import com.cleanup.todoc.ui.MainActivity;
+import com.cleanup.todoc.R;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static com.cleanup.todoc.TestUtils.withRecyclerView;
+import static com.cleanup.todoc.ui.TestUtils.withRecyclerView;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -119,5 +119,14 @@ public class MainActivityInstrumentedTest {
                 .check(matches(withText("zzz Tâche example")));
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(2, R.id.lbl_task_name))
                 .check(matches(withText("aaa Tâche example")));
+
+        //onView(withId(R.id.img_delete),withText()).perform(click());
+//        onView(withRecyclerView(R.id.list_tasks).atPositionOnView(0, R.id.img_delete))
+//                .perform(click());
+//        onView(withRecyclerView(R.id.list_tasks).atPositionOnView(1, R.id.lbl_task_name))
+//                .check(matches(withText("zzz Tâche example")));
+//        onView(withRecyclerView(R.id.list_tasks).atPositionOnView(2, R.id.lbl_task_name))
+//                .check(matches(withText("aaa Tâche example")));
+
     }
 }
