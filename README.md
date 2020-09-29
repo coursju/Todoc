@@ -5,8 +5,10 @@ projet 5 parcours android openclassrooms
 
 Ce dépot contient:
 
-● Le code de l'application, l'APK signé ainsi que l'adresse de dépôt GitHub correspondant ;
-● Un modèle relationnel (MPD) de la base de données SQL ;
+● Le code de l'application, l'APK signé ainsi que l'adresse de dépôt GitHub correspondant.
+
+● Un modèle relationnel (MPD) de la base de données SQL.
+
 ● Les rapports d'exécution (unitaire et instrumentalisé) des tests finaux (qui doivent indiquer que les tests réussissent) au format HTML.
 
 
