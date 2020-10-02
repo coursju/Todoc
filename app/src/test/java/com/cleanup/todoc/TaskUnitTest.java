@@ -1,5 +1,6 @@
 package com.cleanup.todoc;
 
+import com.cleanup.todoc.model.AllProjects;
 import com.cleanup.todoc.model.Task;
 
 import org.junit.Test;
@@ -23,12 +24,9 @@ public class TaskUnitTest {
         final Task task1 = new Task( 1, "task 1", new Date().getTime());
         final Task task2 = new Task( 2, "task 2", new Date().getTime());
         final Task task3 = new Task( 3, "task 3", new Date().getTime());
-        final Task task4 = new Task( 4, "task 4", new Date().getTime());
-
-        assertEquals("Projet Tartampion", task1.getProject().getName());
-        assertEquals("Projet Lucidia", task2.getProject().getName());
-        assertEquals("Projet Circus", task3.getProject().getName());
-        assertNull(task4.getProject());
+        assertEquals(1, task1.getProjectId());
+        assertEquals(2, task2.getProjectId());
+        assertEquals(3, task3.getProjectId());
     }
 
     @Test
