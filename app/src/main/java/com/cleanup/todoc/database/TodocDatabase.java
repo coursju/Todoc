@@ -47,7 +47,11 @@ public abstract class TodocDatabase extends RoomDatabase {
             public void onCreate(@NonNull SupportSQLiteDatabase db) {
                 super.onCreate(db);
 
-                Project[] projects = Project.getAllProjects();
+                Project[] projects = new Project[]{
+                        new Project(1, "Projet Tartampion", 0xFFEADAD1),
+                        new Project(2, "Projet Lucidia", 0xFFB4CDBA),
+                        new Project(3, "Projet Circus", 0xFFA3CED2),
+                };
                 for (Project project : projects) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("id", project.getId());

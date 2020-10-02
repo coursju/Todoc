@@ -9,6 +9,7 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.cleanup.todoc.R;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,14 +32,29 @@ import static org.junit.Assert.assertThat;
  */
 @RunWith(AndroidJUnit4.class)
 public class MainActivityInstrumentedTest {
+
+    private MainActivity activity;
+    private RecyclerView listTasks;
+    private int count;
+
     @Rule
     public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
+    @Before
+    public void initDb(){
+        activity = rule.getActivity();
+        listTasks = activity.findViewById(R.id.list_tasks);
+        count = listTasks.getAdapter().getItemCount();
+
+        for (int j =0; j < count; j++){
+            onView(withRecyclerView(R.id.list_tasks).atPositionOnView(0, R.id.img_delete))
+                    .perform(click());
+        }
+    }
+
     @Test
     public void addAndRemoveTask() {
-        MainActivity activity = rule.getActivity();
         TextView lblNoTask = activity.findViewById(R.id.lbl_no_task);
-        RecyclerView listTasks = activity.findViewById(R.id.list_tasks);
 
         onView(withId(R.id.fab_add_task)).perform(click());
         onView(withId(R.id.txt_task_name)).perform(replaceText("Tâche example"));
@@ -61,8 +77,6 @@ public class MainActivityInstrumentedTest {
 
     @Test
     public void sortTasks() {
-        MainActivity activity = rule.getActivity();
-
         onView(withId(R.id.fab_add_task)).perform(click());
         onView(withId(R.id.txt_task_name)).perform(replaceText("aaa Tâche example"));
         onView(withId(android.R.id.button1)).perform(click());

@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cleanup.todoc.R;
 import com.cleanup.todoc.injections.Injection;
 import com.cleanup.todoc.injections.ViewModelFactory;
+import com.cleanup.todoc.model.AllProjects;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     }
 
     private void updateProjects(List<Project> projects) {
+        AllProjects.setAllProjects(projects);
         allProjects = projects;
     }
 
